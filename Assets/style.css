@@ -1,0 +1,50 @@
+*{
+}
+
+.headerdiv {
+    display: inline-block;
+    
+}
+h1 {
+    display: inline-block;
+}
+
+#highscore {
+    margin-right: 225px;
+    float: left;
+    display: inline-block;
+}
+#time {
+    margin-left: 225px;
+    float: right;
+    display: inline-block;
+    
+    
+}
+#nextButton {
+    padding: 5px 30px 5px 30px;
+    margin: 20px 20px 20px 20px;
+}
+#container {
+    border-radius: 5px;
+    background-color: rgb(203, 219, 253);
+    box-shadow: rgba(0, 0, 0, 0.534) 0px 2px 8px 0px;
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.btn {
+display: grid;
+grid-template-columns: repeat(1, auto);
+margin: auto;
+margin-top: 15px
+}
+.btn :hover {
+    color: rgb(6, 6, 99);
+}
+/* .aButtons {
+    display: none;
+} */

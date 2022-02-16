@@ -2,14 +2,36 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz time! How fast can you answer these questions?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/style.css">
+    <title>Quiz time!</title>
 </head>
+<div id="container">
+    <div class="quizBox">
+        <li id="highscore"> <a href="View Highscores"></a> View Highscores:</li>
+        <li id="time">Time:</li>
+    </div>
+    </header>
 
-<body>
-<h1 > </h1>
-<script src= "script.js"></script>
-</body>
+    <body>
+        <h1> Coding Quiz Challenge!</h1>
+        <p>Give your best shot at answering these coding questions within the time limit. Any incorrect answers with
+            penalize your scoretime by ten seconds, so think hard!</p>
+        <button id="startButton">Start Quiz</button>
+        <div >
+            <p id="qContainer"></p>
+        </div>
+
+        <div class="aButtons">
+            <button class="btn" id="abtn">A) </button>
+            <button class="btn" id="bbtn">B) </button>
+            <button class="btn" id="cbtn">C) </button>
+            <button class="btn" id="dbtn">D) </button>
+            <button id="nextButton"> Next</button>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="Assets/script.js"></script>
+    </body>
+
 </html>
-
