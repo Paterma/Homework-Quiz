@@ -45,6 +45,7 @@ margin-top: 15px
 .btn :hover {
     color: rgb(6, 6, 99);
 }
-/* .aButtons {
-    display: none;
-} */
+#shScores {
+    text-align: center;
+    border: 2px black;
+}

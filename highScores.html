@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/stylescores.css">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="shScores">
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="Assets/script.js"></script>
+    <script>
+        function renderScores() {
+    var savedScores= JSON.parse(localStorage.getItem("score")) //parsing the data
+    console.log(savedScores)
+    var shScores= document.getElementById("shScores")
+    if (savedScores.length > 1) {
+    for (let i = 0; i < savedScores.length; i++) {
+        const element = savedScores[i];
+        console.log(element)
+        var newInfo = document.createElement("li")
+        newInfo.textContent = element.userInitials + " -- " + element.scores
+        
+        console.log(shScores)
+        shScores.appendChild(newInfo); 
+    }}
+}
+renderScores()
+    </script>
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+     <script src="Assets/script.js"></script>
+</body>
+
+</html>

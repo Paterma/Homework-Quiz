@@ -83,9 +83,13 @@ startButton.addEventListener("click", startGame); //When start button is clicked
 function renderQuestion() {
     qContainer.textContent = questionOptions[questionIndex].currentQuestion
     abtn.textContent = questionOptions[questionIndex].answers[0].text
+    abtn.setAttribute("data-correct", questionOptions[questionIndex].answers[0].correct)
     bbtn.textContent = questionOptions[questionIndex].answers[1].text
+    bbtn.setAttribute("data-correct", questionOptions[questionIndex].answers[1].correct)
     cbtn.textContent = questionOptions[questionIndex].answers[2].text
+    cbtn.setAttribute("data-correct", questionOptions[questionIndex].answers[2].correct)
     dbtn.textContent = questionOptions[questionIndex].answers[3].text
+    dbtn.setAttribute("data-correct", questionOptions[questionIndex].answers[3].correct)
 }
 // renderQuestion(){
 //     qContainer.textContent = questionIndex[questionIndex].currentQuestion ++1
@@ -95,13 +99,14 @@ function renderQuestion() {
 //grab each individual button 4 new variables update text of each button with corresponding answer increase question by 1
 
 function startGame() { 
+    timer = 30;
     renderQuestion()
     
 // //   questionOptions.append(qContainer);
 //     for (let i = 0; i < questionOptions.length; i++) {
 //     // startGame = questionOptions[i];//starting the game
 //     } 
-    startButton.style.display = "none"; //no longer display the start button
+startButton.style.display = "none"; //no longer display the start button
 // startGame();
 
 var gameTimer = setInterval(() => { //begin the timer when the game starts
@@ -146,22 +151,118 @@ nextButton.addEventListener("click", function () {
 //     startButton.textContent = "restart"
 //     startButton.classList.remove("hide")
 // }
-// abtn.addEventListener("click", function ()  //telling the score to go up when the correct button is clicked 
-// bbtn.addEventListener("click", function ()  //telling the score to go up when the correct button is clicked
-// cbtn.addEventListener("click", function ()  //telling the score to go up when the correct button is clicked
-// dbtn.addEventListener("click", function () //telling the score to go up when the correct button is clicked
+abtn.addEventListener("click", function (event){
+    console.log (event.target.dataset.correct)
+    var isCorrect = event.target.dataset.correct
+    if (isCorrect === "true") {
+        scores++;
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+        renderQuestion()
+    } else {
+        timer = timer-10
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+    }
+})
 
+bbtn.addEventListener("click", function (event){
+    console.log (event.target.dataset.correct)
+    isCorrect = event.target.dataset.correct
+    if (isCorrect === "true") {
+        scores++;
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+        renderQuestion()
+    } else {
+        timer = timer-10
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+    }
+}
+)
+cbtn.addEventListener("click", function (event){
+    console.log (event.target.dataset.correct)
+    isCorrect = event.target.dataset.correct
+    if (isCorrect === "true") {
+        scores++;
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+        renderQuestion()
+    } else {
+        timer = timer-10
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+    }
+}
+)
+dbtn.addEventListener("click", function (event){
+    console.log (event.target.dataset.correct)
+    isCorrect = event.target.dataset.correct
+    if (isCorrect === "true") {
+        scores++;
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+        renderQuestion()
+    } else {
+        timer = timer-10;
+            questionIndex ++
+            if (questionIndex >= questionOptions.length) {
+                gameOver()
+                
+            } else {
+                renderQuestion()
+            }
+    }
+}
+)  //telling the score to go up when the correct button is clicked 
 
-function keepScore (){
-    scores = abtn.questionOptions[questionIndex].answers
 if (abtn || bbtn || cbtn || dbtn == true) {
-    scores++;
+    // scores++;
     savedScores; 
 } else { 
-    timer -=10;
+    // timer -=10;
 } 
-}
-keepScore()
+// function keepScore (){
+//     scores = abtn.questionOptions[questionIndex].answers
+
+// }
+// keepScore()
 function setStatus (element,correct){//two options available- correct and incorrect
     clearStatus(element)
     if (correct) {
@@ -190,10 +291,14 @@ function gameOver () { //Ending game
     localStorage.setItem("score", JSON.stringify(savedScores)) //saving the savedscores to local storage
 
 //Resetting page and variables back to the start for new game
-    startButton.style.display = "block";
+    startButton.style.display = "inline-block";
     nextButton.style.display = "none";
-    timer = 30;
     scores = 0;
+    qContainer.style.display="none"
+    abtn.style.display="none"
+    bbtn.style.display="none"
+    cbtn.style.display="none"
+    dbtn.style.display="none"
 
     renderScores();
 }
@@ -201,12 +306,17 @@ function gameOver () { //Ending game
 
 //Show and render scores
 function renderScores() {
+    var savedScores= JSON.parse(localStorage.getItem("score")) || [] //parsing the data
+    console.log(savedScores)
+    var shScores= document.getElementById("shScores")
     for (let i = 0; i < savedScores.length; i++) {
         const element = savedScores[i];
+        console.log(element)
         var newInfo = document.createElement("li")
-        newInfo.textContent = element.userInitials + " -- " + element.score
-        // savedScores.appendChild(highscore); 
+        newInfo.textContent = element.userInitials + " -- " + element.scores
         
+        console.log(shScores)
+    //     shScores.appendChild(newInfo); 
     }
 }
 
