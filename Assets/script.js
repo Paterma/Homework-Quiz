@@ -91,23 +91,16 @@ function renderQuestion() {
     dbtn.textContent = questionOptions[questionIndex].answers[3].text
     dbtn.setAttribute("data-correct", questionOptions[questionIndex].answers[3].correct)
 }
-// renderQuestion(){
-//     qContainer.textContent = questionIndex[questionIndex].currentQuestion ++1
-//     var bt
 
- //.answers
 //grab each individual button 4 new variables update text of each button with corresponding answer increase question by 1
-
+//beginning the game
 function startGame() { 
     timer = 30;
     renderQuestion()
     
-// //   questionOptions.append(qContainer);
-//     for (let i = 0; i < questionOptions.length; i++) {
-//     // startGame = questionOptions[i];//starting the game
-//     } 
+//no longer show the start button once the game has started
 startButton.style.display = "none"; //no longer display the start button
-// startGame();
+
 
 var gameTimer = setInterval(() => { //begin the timer when the game starts
     timeText.textContent = timer;
@@ -130,27 +123,7 @@ nextButton.addEventListener("click", function () {
         renderQuestion()
     }
 })
-
-// function showQuestions (questionOptions, qContainer); 
-// showQuestions(); //show questions
-// currentQuestion = 0;
-// $(questionOptions.get(currentQuestion)).fadeIn();
-//What next question will appear
-
-// function showQuestions (questionOptions, qContainer); { //show questions
-//     questionElement.textContent= questionOptions.questionOptions;
-// }
-// function set nextQuestion () {
-//     resetState();
-//     showQuestions();
-// }
-
-// if (questionOptions.length > currentQuestion +1) {
-//     nextButton.classList.remove("hide")
-// } else {
-//     startButton.textContent = "restart"
-//     startButton.classList.remove("hide")
-// }
+//when a A, B, C, or D button is clicked it will either give a point if they get it correct or deduct time if it is not
 abtn.addEventListener("click", function (event){
     console.log (event.target.dataset.correct)
     var isCorrect = event.target.dataset.correct
@@ -258,8 +231,7 @@ if (abtn || bbtn || cbtn || dbtn == true) {
 } else { 
     // timer -=10;
 } 
-// function keepScore (){
-//     scores = abtn.questionOptions[questionIndex].answers
+
 
 // }
 // keepScore()
@@ -306,7 +278,7 @@ function gameOver () { //Ending game
 
 //Show and render scores
 function renderScores() {
-    var savedScores= JSON.parse(localStorage.getItem("score")) || [] //parsing the data
+    var savedScores= JSON.parse(localStorage.getItem("score")) ||  //parsing the data
     console.log(savedScores)
     var shScores= document.getElementById("shScores")
     for (let i = 0; i < savedScores.length; i++) {
@@ -319,8 +291,6 @@ function renderScores() {
     //     shScores.appendChild(newInfo); 
     }
 }
-
-//LOOK UP "clear time out" or "clearInterval" 
 
 
 //PSUEDO CODE

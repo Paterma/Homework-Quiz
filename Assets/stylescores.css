@@ -1,7 +1,8 @@
 * {
-
+/* My styling for my HighScores because my highscores.html would not link to my style.css or script.js */
 }
 #shScores {
     font-size: larger;
-    color: rgb(61, 2, 109);
+    text-decoration: underline;
+    font-weight: bold;
 }

@@ -25,6 +25,7 @@ h1 {
     padding: 5px 30px 5px 30px;
     margin: 20px 20px 20px 20px;
 }
+/* My container that holds my quiz */
 #container {
     border-radius: 5px;
     background-color: rgb(203, 219, 253);
@@ -35,7 +36,7 @@ h1 {
     padding: 20px 30px;
     text-align: center;
 }
-
+/* My buttons and styling of those buttons */
 .btn {
 display: grid;
 grid-template-columns: repeat(1, auto);
@@ -44,8 +45,4 @@ margin-top: 15px
 }
 .btn :hover {
     color: rgb(6, 6, 99);
-}
-#shScores {
-    text-align: center;
-    border: 2px black;
 }
