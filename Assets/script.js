@@ -278,10 +278,10 @@ function gameOver () { //Ending game
 
 //Show and render scores
 function renderScores() {
-    var savedScores= JSON.parse(localStorage.getItem("score")) ||  //parsing the data
+    var savedScores= JSON.parse(localStorage.getItem("score")) || [] //parsing the data
     console.log(savedScores)
     var shScores= document.getElementById("shScores")
-    for (let i = 0; i < savedScores.length; i++) {
+    for (let i = 0; i < savedScores?.length; i++) {
         const element = savedScores[i];
         console.log(element)
         var newInfo = document.createElement("li")
