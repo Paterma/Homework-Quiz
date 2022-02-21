@@ -263,7 +263,7 @@ function gameOver () { //Ending game
     localStorage.setItem("score", JSON.stringify(savedScores)) //saving the savedscores to local storage
 
 //Resetting page and variables back to the start for new game
-    startButton.style.display = "inline-block";
+    startButton.style.display = "none";
     nextButton.style.display = "none";
     scores = 0;
     qContainer.style.display="none"
@@ -273,7 +273,7 @@ function gameOver () { //Ending game
     dbtn.style.display="none"
 
     renderScores();
-}
+} 
 
 
 //Show and render scores
